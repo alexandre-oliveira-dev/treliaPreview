@@ -37,7 +37,7 @@ export function ContactForm() {
           name="nome"
           type="text"
           required
-          className="mt-2 w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-bronze"
+          className="mt-2 w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-graphite"
         />
       </div>
 
@@ -50,7 +50,7 @@ export function ContactForm() {
           name="area"
           required
           defaultValue=""
-          className="mt-2 w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-bronze"
+          className="mt-2 w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-graphite"
         >
           <option value="" disabled>
             Selecione uma área
@@ -73,7 +73,7 @@ export function ContactForm() {
           name="mensagem"
           rows={4}
           required
-          className="mt-2 w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-bronze"
+          className="mt-2 w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none focus:border-graphite"
         />
       </div>
 

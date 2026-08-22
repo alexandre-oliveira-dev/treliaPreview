@@ -17,7 +17,7 @@ export function Footer() {
               className="h-9 w-9 object-contain brightness-0 invert"
             />
             <p className="font-serif-display text-xl text-paper">
-              Marinho <span className="text-bronze-soft">&</span> Freitas
+              Marinho <span className="text-graphite-soft">&</span> Freitas
             </p>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper/60">
@@ -39,7 +39,7 @@ export function Footer() {
               <li key={area.slug}>
                 <Link
                   href={`/areas-de-atuacao/${area.slug}`}
-                  className="text-sm text-paper/70 hover:text-bronze-soft"
+                  className="text-sm text-paper/70 hover:text-graphite-soft"
                 >
                   {area.name}
                 </Link>
@@ -54,24 +54,29 @@ export function Footer() {
           </p>
           <ul className="mt-4 space-y-2">
             <li>
-              <Link href="/sobre" className="text-sm text-paper/70 hover:text-bronze-soft">
+              <Link href="/sobre" className="text-sm text-paper/70 hover:text-graphite-soft">
                 Sobre o escritório
               </Link>
             </li>
             <li>
-              <Link href="/socias" className="text-sm text-paper/70 hover:text-bronze-soft">
+              <Link href="/socias" className="text-sm text-paper/70 hover:text-graphite-soft">
                 Sócias
               </Link>
             </li>
             <li>
-              <Link href="/contato" className="text-sm text-paper/70 hover:text-bronze-soft">
+              <Link href="/contato" className="text-sm text-paper/70 hover:text-graphite-soft">
                 Contato
+              </Link>
+            </li>
+            <li>
+              <Link href="/faq" className="text-sm text-paper/70 hover:text-graphite-soft">
+                Perguntas Frequentes
               </Link>
             </li>
             <li>
               <Link
                 href="/politica-de-privacidade"
-                className="text-sm text-paper/70 hover:text-bronze-soft"
+                className="text-sm text-paper/70 hover:text-graphite-soft"
               >
                 Política de Privacidade
               </Link>

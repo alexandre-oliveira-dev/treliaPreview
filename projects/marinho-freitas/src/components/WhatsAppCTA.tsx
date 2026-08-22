@@ -21,7 +21,7 @@ export function WhatsAppCTA({
   const styles = {
     primary: "bg-ink text-paper hover:bg-ink-soft",
     secondary: "border border-ink text-ink hover:bg-ink hover:text-paper",
-    ghost: "text-ink underline underline-offset-4 decoration-bronze hover:text-bronze",
+    ghost: "text-ink underline underline-offset-4 decoration-graphite hover:text-graphite",
   };
 
   return (

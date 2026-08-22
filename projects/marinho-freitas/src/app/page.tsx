@@ -23,7 +23,7 @@ export default function Home() {
         <AnimatedHero />
         <Container className="relative grid gap-12 py-20 md:grid-cols-2 md:items-center md:py-28">
           <FadeIn>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-bronze">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-graphite">
               {site.founded}
             </p>
             <h1 className="mt-4 font-serif-display text-4xl leading-[1.1] text-ink md:text-5xl">
@@ -44,33 +44,39 @@ export default function Home() {
                 Conhecer nossa atuação
               </Link>
             </div>
-            <div className="mt-12 grid max-w-sm grid-cols-3 gap-6 border-t border-line pt-8">
-              <div>
-                <Counter to={10} suffix="+" />
-                <p className="mt-1 text-xs text-body/60">anos de atuação</p>
-              </div>
-              <div>
-                <Counter to={4} />
-                <p className="mt-1 text-xs text-body/60">áreas do Direito</p>
-              </div>
-              <div>
-                <Counter to={2} />
-                <p className="mt-1 text-xs text-body/60">sócias-fundadoras</p>
-              </div>
+            <div className="mt-10 flex max-w-md flex-wrap items-center gap-x-6 gap-y-2 border-t border-line pt-6 text-xs text-body/60">
+              <span className="inline-flex items-baseline gap-1.5">
+                <Counter to={10} suffix="+" small />
+                anos de experiência
+              </span>
+              <span className="text-line">•</span>
+              <span className="inline-flex items-baseline gap-1.5">
+                <Counter to={4} small />
+                áreas do Direito
+              </span>
+              <span className="text-line">•</span>
+              <span className="inline-flex items-baseline gap-1.5">
+                <Counter to={2} small />
+                sócias-fundadoras
+              </span>
             </div>
           </FadeIn>
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.15} className="relative">
+            <div
+              aria-hidden
+              className="absolute -bottom-4 -right-4 hidden aspect-[4/5] w-full border border-graphite/30 md:block"
+            />
             <RealPhoto
               src="/images/socias-office.png"
               alt="Dra. Larissa Freitas e Dra. Ana Marinho, sócias-fundadoras do Marinho & Freitas Advogados"
-              className="aspect-[4/5] w-full"
+              className="relative aspect-[4/5] w-full"
               priority
             />
           </FadeIn>
         </Container>
       </section>
 
-      <section className="border-b border-line bg-paper-alt/60 py-20 md:py-28">
+      <section id="situacoes" className="border-b border-line bg-paper-alt/60 py-20 md:py-28">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -83,9 +89,9 @@ export default function Home() {
             {situations.map((situation, i) => (
               <FadeInStaggerItem
                 key={situation}
-                className="flex gap-4 border border-line bg-paper p-6 transition-colors hover:border-bronze"
+                className="flex gap-4 border border-line bg-paper p-6 transition-colors hover:border-graphite"
               >
-                <span className="font-serif-display text-lg text-bronze">
+                <span className="font-serif-display text-lg text-graphite">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-sm leading-relaxed text-body/80">{situation}</p>
@@ -95,7 +101,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-b border-line py-20 md:py-28">
+      <section id="areas" className="border-b border-line py-20 md:py-28">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -113,14 +119,14 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-ink py-20 text-paper md:py-28">
+      <section id="autoridade" className="border-b border-line bg-ink py-20 text-paper md:py-28">
         <Container className="grid gap-12 md:grid-cols-2 md:items-center">
           <FadeIn>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-bronze-soft">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-graphite-soft">
               Autoridade
             </p>
             <h2 className="mt-3 font-serif-display text-3xl leading-tight md:text-4xl">
-              Conduzido por duas sócias-fundadoras dedicadas a cada caso
+              Experiência jurídica conduzida de perto.
             </h2>
             <p className="mt-6 max-w-lg text-sm leading-relaxed text-paper/70">
               Dra. Larissa Freitas e Dra. Ana Marinho respondem pela gestão, organização e
@@ -129,24 +135,28 @@ export default function Home() {
             </p>
             <Link
               href="/socias"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-bronze-soft transition-colors hover:text-paper"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-graphite-soft transition-colors hover:text-paper"
             >
               Conhecer as sócias
               <span aria-hidden>→</span>
             </Link>
           </FadeIn>
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.15} className="relative">
+            <div
+              aria-hidden
+              className="absolute -bottom-4 -left-4 hidden aspect-[4/5] w-full border border-graphite-soft/30 md:block"
+            />
             <RealPhoto
               src="/images/socias-office.png"
               alt="Sócias-fundadoras no escritório Marinho & Freitas Advogados"
-              className="aspect-[4/5] w-full"
+              className="relative aspect-[4/5] w-full"
               caption="Dra. Larissa Freitas & Dra. Ana Marinho"
             />
           </FadeIn>
         </Container>
       </section>
 
-      <section className="border-b border-line py-20 md:py-28">
+      <section id="diferenciais" className="border-b border-line py-20 md:py-28">
         <Container>
           <FadeIn>
             <SectionHeading eyebrow="Diferenciais" title="Por que confiar no escritório" />
@@ -155,8 +165,12 @@ export default function Home() {
             {differentiators.map((item) => (
               <FadeInStaggerItem
                 key={item.title}
-                className="bg-paper p-8 transition-colors hover:bg-paper-alt"
+                className="relative bg-paper p-8 pl-10 transition-colors hover:bg-paper-alt"
               >
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-8 h-8 w-px bg-graphite/40"
+                />
                 <h3 className="font-serif-display text-lg text-ink">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-body/70">{item.description}</p>
               </FadeInStaggerItem>
@@ -165,7 +179,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-b border-line bg-paper-alt/60 py-20 md:py-28">
+      <section id="como-funciona" className="border-b border-line bg-paper-alt/60 py-20 md:py-28">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -173,10 +187,16 @@ export default function Home() {
               title="Um processo de atendimento claro, do primeiro contato ao acompanhamento"
             />
           </FadeIn>
-          <FadeInStagger className="mt-12 grid gap-8 md:grid-cols-4">
+          <FadeInStagger className="relative mt-16 grid gap-8 md:grid-cols-4">
+            <div
+              aria-hidden
+              className="absolute left-0 right-0 top-3 hidden h-px bg-line md:block"
+            />
             {process.map((item) => (
-              <FadeInStaggerItem key={item.step}>
-                <span className="font-serif-display text-2xl text-bronze">{item.step}</span>
+              <FadeInStaggerItem key={item.step} className="relative">
+                <span className="relative z-10 inline-block bg-paper-alt pr-4 font-serif-display text-2xl text-graphite md:bg-paper-alt">
+                  {item.step}
+                </span>
                 <h3 className="mt-3 font-serif-display text-base text-ink">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body/70">{item.description}</p>
               </FadeInStaggerItem>
@@ -185,25 +205,33 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="py-20 md:py-28">
-        <Container className="flex flex-col items-center gap-6 text-center">
+      <section className="relative overflow-hidden border-b border-line py-20 text-paper md:py-32">
+        <div className="absolute inset-0">
+          <RealPhoto
+            src="/images/socias-office.png"
+            alt="Sócias-fundadoras do Marinho & Freitas Advogados"
+            className="h-full w-full"
+          />
+          <div className="absolute inset-0 bg-ink/80" />
+        </div>
+        <Container className="relative flex flex-col items-center gap-6 text-center">
           <FadeIn className="flex flex-col items-center gap-6">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-bronze">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-graphite-soft">
               Seu problema é urgente para nós
             </p>
-            <h2 className="max-w-2xl font-serif-display text-3xl leading-tight text-ink md:text-4xl">
-              Fale com o escritório e entenda como podemos ajudar na sua situação
+            <h2 className="max-w-2xl font-serif-display text-3xl leading-tight md:text-4xl">
+              Seu caso merece atenção, estratégia e segurança.
             </h2>
             <div className="mt-4 flex flex-wrap justify-center gap-4">
               <WhatsAppCTA
                 message="Olá, gostaria de falar com o escritório."
                 context="home_final_cta"
               >
-                Falar com Advogado Online
+                Falar com o escritório
               </WhatsAppCTA>
               <Link
                 href="/contato"
-                className="inline-flex items-center justify-center rounded-full border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+                className="inline-flex items-center justify-center rounded-full border border-paper/40 px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-paper hover:text-ink"
               >
                 Agendar uma consulta
               </Link>

@@ -57,7 +57,7 @@ export default function FaqPage() {
                 <details className="group py-6">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif-display text-lg text-ink">
                     {faq.question}
-                    <span className="shrink-0 text-bronze transition-transform group-open:rotate-45">+</span>
+                    <span className="shrink-0 text-graphite transition-transform group-open:rotate-45">+</span>
                   </summary>
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-body/80">{faq.answer}</p>
                 </details>

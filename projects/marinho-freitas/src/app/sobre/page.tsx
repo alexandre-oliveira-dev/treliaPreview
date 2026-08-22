@@ -1,10 +1,39 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { RealPhoto } from "@/components/RealPhoto";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
-import { differentiators, process, site } from "@/lib/site";
+import { site } from "@/lib/site";
+
+const sobreLinks = [
+  {
+    href: "/areas-de-atuacao",
+    title: "Áreas de Atuação",
+    description: "Direito Criminal, Família e Sucessões, Consumidor e Empresarial.",
+  },
+  {
+    href: "/socias",
+    title: "Sócias-fundadoras",
+    description: "Conheça Dra. Larissa Freitas e Dra. Ana Marinho.",
+  },
+  {
+    href: "/#diferenciais",
+    title: "Diferenciais",
+    description: "O que orienta o trabalho do escritório.",
+  },
+  {
+    href: "/#como-funciona",
+    title: "Como funciona o atendimento",
+    description: "Do primeiro contato ao acompanhamento do caso.",
+  },
+  {
+    href: "/faq",
+    title: "Perguntas frequentes",
+    description: "Dúvidas comuns sobre o atendimento.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Sobre o Escritório",
@@ -19,7 +48,7 @@ export default function SobrePage() {
       <section className="border-b border-line">
         <Container className="grid gap-12 py-16 md:grid-cols-2 md:items-center md:py-24">
           <FadeIn>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-bronze">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-graphite">
               Sobre o escritório
             </p>
             <h1 className="mt-4 font-serif-display text-3xl leading-tight text-ink md:text-4xl">
@@ -65,33 +94,26 @@ export default function SobrePage() {
       <section className="border-b border-line py-16 md:py-24">
         <Container>
           <FadeIn>
-            <SectionHeading eyebrow="Diferenciais" title="O que orienta o nosso trabalho" />
+            <SectionHeading eyebrow="Explore" title="Para onde ir a partir daqui" />
           </FadeIn>
           <FadeInStagger className="mt-12 grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2">
-            {differentiators.map((item) => (
-              <FadeInStaggerItem
-                key={item.title}
-                className="bg-paper p-8 transition-colors hover:bg-paper-alt"
-              >
-                <h3 className="font-serif-display text-lg text-ink">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-body/70">{item.description}</p>
-              </FadeInStaggerItem>
-            ))}
-          </FadeInStagger>
-        </Container>
-      </section>
-
-      <section className="border-b border-line bg-paper-alt/60 py-16 md:py-24">
-        <Container>
-          <FadeIn>
-            <SectionHeading eyebrow="Como funciona" title="Processo de atendimento" />
-          </FadeIn>
-          <FadeInStagger className="mt-12 grid gap-8 md:grid-cols-4">
-            {process.map((item) => (
-              <FadeInStaggerItem key={item.step}>
-                <span className="font-serif-display text-2xl text-bronze">{item.step}</span>
-                <h3 className="mt-3 font-serif-display text-base text-ink">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-body/70">{item.description}</p>
+            {sobreLinks.map((item) => (
+              <FadeInStaggerItem key={item.href}>
+                <Link
+                  href={item.href}
+                  className="group flex h-full flex-col justify-between bg-paper p-8 transition-colors hover:bg-paper-alt"
+                >
+                  <div>
+                    <h3 className="font-serif-display text-lg text-ink">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-body/70">{item.description}</p>
+                  </div>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:text-graphite">
+                    Ver mais
+                    <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                  </span>
+                </Link>
               </FadeInStaggerItem>
             ))}
           </FadeInStagger>

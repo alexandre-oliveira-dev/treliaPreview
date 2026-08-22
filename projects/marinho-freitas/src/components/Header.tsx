@@ -10,9 +10,10 @@ import { WhatsAppCTA } from "./WhatsAppCTA";
 import { areas, site } from "@/lib/site";
 
 const navLinks = [
-  { href: "/areas-de-atuacao", label: "Áreas de Atuação" },
   { href: "/sobre", label: "Sobre" },
+  { href: "/areas-de-atuacao", label: "Áreas de Atuação" },
   { href: "/socias", label: "Sócias" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contato", label: "Contato" },
 ];
 
@@ -33,7 +34,7 @@ export function Header() {
             priority
           />
           <span className="font-serif-display text-lg tracking-wide text-ink">
-            Marinho <span className="text-bronze">&</span> Freitas
+            Marinho <span className="text-graphite">&</span> Freitas
           </span>
         </Link>
 
@@ -42,7 +43,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm tracking-wide transition-colors hover:text-bronze ${
+              className={`text-sm tracking-wide transition-colors hover:text-graphite ${
                 pathname === link.href ? "text-ink" : "text-ink-soft"
               }`}
             >

@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
-
 export function PlaceholderMedia({
   label,
   className = "",
@@ -11,16 +7,14 @@ export function PlaceholderMedia({
 }) {
   return (
     <div className={`relative flex items-center justify-center overflow-hidden bg-ink ${className}`}>
-      <motion.div
-        className="absolute inset-0 opacity-[0.16]"
+      <div
+        className="absolute inset-0 opacity-[0.14]"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(135deg, var(--color-bronze-soft) 0px, var(--color-bronze-soft) 1px, transparent 1px, transparent 14px)",
-          backgroundSize: "200% 200%",
+            "repeating-linear-gradient(90deg, var(--color-graphite-soft) 0px, var(--color-graphite-soft) 1px, transparent 1px, transparent 28px)",
         }}
-        animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
       <p className="relative px-6 text-center text-xs uppercase tracking-[0.2em] text-paper/50">
         {label}
         <br />

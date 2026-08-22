@@ -51,7 +51,7 @@ export default function ContatoPage() {
           </div>
 
           <div className="mt-12 border-t border-line pt-8">
-            <p className="text-xs font-medium uppercase tracking-widest text-bronze">Endereço</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-graphite">Endereço</p>
             <p className="mt-2 text-sm text-body/80">
               {site.address.line1}
               <br />
@@ -60,7 +60,7 @@ export default function ContatoPage() {
           </div>
 
           <div className="mt-8">
-            <p className="text-xs font-medium uppercase tracking-widest text-bronze">Telefone</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-graphite">Telefone</p>
             <p className="mt-2 text-sm text-body/80">{site.phoneDisplay}</p>
           </div>
         </FadeIn>

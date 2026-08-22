@@ -3,7 +3,15 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "motion/react";
 
-export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
+export function Counter({
+  to,
+  suffix = "",
+  small = false,
+}: {
+  to: number;
+  suffix?: string;
+  small?: boolean;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
   const motionValue = useMotionValue(0);
@@ -24,7 +32,9 @@ export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   }, [springValue]);
 
   return (
-    <motion.span className="font-serif-display text-3xl text-ink">
+    <motion.span
+      className={`font-serif-display text-ink ${small ? "text-base" : "text-3xl"}`}
+    >
       <span ref={ref}>0</span>
       {suffix}
     </motion.span>

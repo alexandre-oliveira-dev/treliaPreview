@@ -49,7 +49,7 @@ export default async function AreaPage({
           <FadeIn>
             <Link
               href="/areas-de-atuacao"
-              className="text-xs font-medium uppercase tracking-widest text-bronze hover:text-ink"
+              className="text-xs font-medium uppercase tracking-widest text-graphite hover:text-ink"
             >
               ← Áreas de Atuação
             </Link>
@@ -78,7 +78,7 @@ export default async function AreaPage({
             <ul className="mt-8 space-y-4">
               {area.situations.map((situation) => (
                 <li key={situation} className="flex gap-3 border-b border-line pb-4 text-sm text-body/80">
-                  <span className="text-bronze">—</span>
+                  <span className="text-graphite">—</span>
                   {situation}
                 </li>
               ))}
@@ -88,13 +88,13 @@ export default async function AreaPage({
             <SectionHeading eyebrow="Nossa abordagem" title="Como conduzimos o seu caso" />
             <p className="mt-8 text-sm leading-relaxed text-body/80">{area.approach}</p>
             <div className="mt-10 border border-line bg-paper p-6">
-              <p className="text-xs font-medium uppercase tracking-widest text-bronze">
+              <p className="text-xs font-medium uppercase tracking-widest text-graphite">
                 Profissionais responsáveis
               </p>
               <p className="mt-3 text-sm text-body/80">
                 {partners.map((p) => p.name).join(" e ")}, sócias-fundadoras do escritório.
               </p>
-              <Link href="/socias" className="mt-4 inline-block text-sm font-medium text-ink hover:text-bronze">
+              <Link href="/socias" className="mt-4 inline-block text-sm font-medium text-ink hover:text-graphite">
                 Conhecer as sócias →
               </Link>
             </div>
@@ -118,7 +118,7 @@ export default async function AreaPage({
       <section className="py-16 md:py-20">
         <Container>
           <FadeIn>
-            <p className="text-xs font-medium uppercase tracking-widest text-bronze">
+            <p className="text-xs font-medium uppercase tracking-widest text-graphite">
               Outras áreas de atuação
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -126,7 +126,7 @@ export default async function AreaPage({
                 <Link
                   key={other.slug}
                   href={`/areas-de-atuacao/${other.slug}`}
-                  className="rounded-full border border-line px-5 py-2 text-sm text-ink-soft transition-colors hover:border-bronze hover:text-bronze"
+                  className="rounded-full border border-line px-5 py-2 text-sm text-ink-soft transition-colors hover:border-graphite hover:text-graphite"
                 >
                   {other.name}
                 </Link>

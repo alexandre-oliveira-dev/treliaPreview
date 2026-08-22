@@ -18,7 +18,7 @@ export default function SociasPage() {
       <section className="border-b border-line">
         <Container className="grid gap-12 py-16 md:grid-cols-2 md:items-center md:py-24">
           <FadeIn>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-bronze">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-graphite">
               Sócias-fundadoras
             </p>
             <h1 className="mt-3 font-serif-display text-3xl leading-tight text-ink md:text-4xl">
@@ -46,7 +46,7 @@ export default function SociasPage() {
             {partners.map((partner) => (
               <FadeInStaggerItem key={partner.slug} className="bg-paper p-8 md:p-10">
                 <h2 className="font-serif-display text-2xl text-ink">{partner.name}</h2>
-                <p className="mt-1 text-xs font-medium uppercase tracking-widest text-bronze">
+                <p className="mt-1 text-xs font-medium uppercase tracking-widest text-graphite">
                   {partner.role}
                 </p>
                 <p className="mt-6 text-sm leading-relaxed text-body/80">{partner.bio}</p>
