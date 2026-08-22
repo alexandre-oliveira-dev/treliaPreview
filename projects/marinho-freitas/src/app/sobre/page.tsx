@@ -33,6 +33,11 @@ const sobreLinks = [
     title: "Perguntas frequentes",
     description: "Dúvidas comuns sobre o atendimento.",
   },
+  {
+    href: "/contato",
+    title: "Contato",
+    description: "Fale com o escritório por WhatsApp, formulário ou agende uma consulta.",
+  },
 ];
 
 export const metadata: Metadata = {
