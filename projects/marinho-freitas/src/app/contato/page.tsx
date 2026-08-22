@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { ContactForm } from "@/components/ContactForm";
+import { FadeIn } from "@/components/FadeIn";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function ContatoPage() {
   return (
     <section className="py-16 md:py-24">
       <Container className="grid gap-16 md:grid-cols-2">
-        <div>
+        <FadeIn>
           <SectionHeading
             eyebrow="Contato"
             title="Seu problema é urgente para nós"
@@ -62,14 +63,14 @@ export default function ContatoPage() {
             <p className="text-xs font-medium uppercase tracking-widest text-bronze">Telefone</p>
             <p className="mt-2 text-sm text-body/80">{site.phoneDisplay}</p>
           </div>
-        </div>
+        </FadeIn>
 
-        <div className="border border-line bg-paper-alt/40 p-8">
+        <FadeIn delay={0.15} className="border border-line bg-paper-alt/40 p-8">
           <h2 className="font-serif-display text-xl text-ink">Envie sua mensagem</h2>
           <div className="mt-8">
             <ContactForm />
           </div>
-        </div>
+        </FadeIn>
       </Container>
     </section>
   );

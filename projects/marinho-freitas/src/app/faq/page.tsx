@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -42,34 +43,40 @@ export default function FaqPage() {
     <>
       <section className="border-b border-line py-16 md:py-24">
         <Container>
-          <SectionHeading
-            eyebrow="FAQ"
-            title="Perguntas frequentes"
-            description="Dúvidas comuns sobre como funciona o atendimento. Para questões específicas sobre o seu caso, fale diretamente com o escritório."
-          />
+          <FadeIn>
+            <SectionHeading
+              eyebrow="FAQ"
+              title="Perguntas frequentes"
+              description="Dúvidas comuns sobre como funciona o atendimento. Para questões específicas sobre o seu caso, fale diretamente com o escritório."
+            />
+          </FadeIn>
 
-          <div className="mt-12 divide-y divide-line border-t border-line">
+          <FadeInStagger className="mt-12 divide-y divide-line border-t border-line">
             {faqs.map((faq) => (
-              <details key={faq.question} className="group py-6">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif-display text-lg text-ink">
-                  {faq.question}
-                  <span className="shrink-0 text-bronze transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-body/80">{faq.answer}</p>
-              </details>
+              <FadeInStaggerItem key={faq.question} y={12}>
+                <details className="group py-6">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif-display text-lg text-ink">
+                    {faq.question}
+                    <span className="shrink-0 text-bronze transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-body/80">{faq.answer}</p>
+                </details>
+              </FadeInStaggerItem>
             ))}
-          </div>
+          </FadeInStagger>
         </Container>
       </section>
 
       <section className="py-16 md:py-20">
         <Container className="flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-xl font-serif-display text-2xl leading-tight text-ink md:text-3xl">
-            Não encontrou o que precisava?
-          </h2>
-          <WhatsAppCTA message="Olá, tenho uma dúvida sobre o atendimento." context="faq_cta">
-            Falar com o escritório
-          </WhatsAppCTA>
+          <FadeIn className="flex flex-col items-center gap-6">
+            <h2 className="max-w-xl font-serif-display text-2xl leading-tight text-ink md:text-3xl">
+              Não encontrou o que precisava?
+            </h2>
+            <WhatsAppCTA message="Olá, tenho uma dúvida sobre o atendimento." context="faq_cta">
+              Falar com o escritório
+            </WhatsAppCTA>
+          </FadeIn>
         </Container>
       </section>
     </>

@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
+import { FadeIn } from "@/components/FadeIn";
 import { areas, partners } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -45,7 +46,7 @@ export default async function AreaPage({
     <>
       <section className="border-b border-line">
         <Container className="grid gap-12 py-16 md:grid-cols-2 md:items-center md:py-24">
-          <div>
+          <FadeIn>
             <Link
               href="/areas-de-atuacao"
               className="text-xs font-medium uppercase tracking-widest text-bronze hover:text-ink"
@@ -63,14 +64,16 @@ export default async function AreaPage({
                 Falar sobre {area.shortName}
               </WhatsAppCTA>
             </div>
-          </div>
-          <PlaceholderMedia label={area.name} className="aspect-[4/3] w-full" />
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <PlaceholderMedia label={area.name} className="aspect-[4/3] w-full" />
+          </FadeIn>
         </Container>
       </section>
 
       <section className="border-b border-line bg-paper-alt/60 py-16 md:py-24">
         <Container className="grid gap-12 md:grid-cols-2">
-          <div>
+          <FadeIn>
             <SectionHeading eyebrow="Situações comuns" title="Quando procurar essa área" />
             <ul className="mt-8 space-y-4">
               {area.situations.map((situation) => (
@@ -80,8 +83,8 @@ export default async function AreaPage({
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
+          </FadeIn>
+          <FadeIn delay={0.15}>
             <SectionHeading eyebrow="Nossa abordagem" title="Como conduzimos o seu caso" />
             <p className="mt-8 text-sm leading-relaxed text-body/80">{area.approach}</p>
             <div className="mt-10 border border-line bg-paper p-6">
@@ -95,37 +98,41 @@ export default async function AreaPage({
                 Conhecer as sócias →
               </Link>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
       <section className="border-b border-line py-16 md:py-24">
         <Container className="flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-xl font-serif-display text-2xl leading-tight text-ink md:text-3xl">
-            Fale agora com o escritório sobre a sua situação em {area.shortName.toLowerCase()}
-          </h2>
-          <WhatsAppCTA message={area.whatsappMessage} context={`area_${area.slug}_footer`}>
-            Falar com Advogado Online
-          </WhatsAppCTA>
+          <FadeIn className="flex flex-col items-center gap-6">
+            <h2 className="max-w-xl font-serif-display text-2xl leading-tight text-ink md:text-3xl">
+              Fale agora com o escritório sobre a sua situação em {area.shortName.toLowerCase()}
+            </h2>
+            <WhatsAppCTA message={area.whatsappMessage} context={`area_${area.slug}_footer`}>
+              Falar com Advogado Online
+            </WhatsAppCTA>
+          </FadeIn>
         </Container>
       </section>
 
       <section className="py-16 md:py-20">
         <Container>
-          <p className="text-xs font-medium uppercase tracking-widest text-bronze">
-            Outras áreas de atuação
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {otherAreas.map((other) => (
-              <Link
-                key={other.slug}
-                href={`/areas-de-atuacao/${other.slug}`}
-                className="rounded-full border border-line px-5 py-2 text-sm text-ink-soft transition-colors hover:border-bronze hover:text-bronze"
-              >
-                {other.name}
-              </Link>
-            ))}
-          </div>
+          <FadeIn>
+            <p className="text-xs font-medium uppercase tracking-widest text-bronze">
+              Outras áreas de atuação
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {otherAreas.map((other) => (
+                <Link
+                  key={other.slug}
+                  href={`/areas-de-atuacao/${other.slug}`}
+                  className="rounded-full border border-line px-5 py-2 text-sm text-ink-soft transition-colors hover:border-bronze hover:text-bronze"
+                >
+                  {other.name}
+                </Link>
+              ))}
+            </div>
+          </FadeIn>
         </Container>
       </section>
     </>
