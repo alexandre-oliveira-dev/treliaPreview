@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #16213a;
+  --color-ink-soft: #2c3550;
+  --color-paper: #faf8f4;
+  --color-paper-alt: #f2efe8;
+  --color-bronze: #a97c50;
+  --color-bronze-soft: #cba679;
+  --color-body: #33302b;
+  --color-line: #e4ddd0;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-paper: var(--color-paper);
+  --color-paper-alt: var(--color-paper-alt);
+  --color-bronze: var(--color-bronze);
+  --color-bronze-soft: var(--color-bronze-soft);
+  --color-body: var(--color-body);
+  --color-line: var(--color-line);
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-body);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+}
+
+::selection {
+  background: var(--color-bronze-soft);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 3px;
+}
