@@ -1,0 +1,12 @@
+{
+  "name": "trelia-preview",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Monorepo de projetos de amostra (showcase) para potenciais clientes",
+  "packageManager": "pnpm@10.18.3",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build",
+    "lint": "pnpm -r run lint"
+  }
+}
