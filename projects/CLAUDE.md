@@ -73,6 +73,37 @@ início do `layout.tsx` ou README do projeto) a direção visual escolhida:
    que é um projeto diferente dos outros da pasta só pelo visual? Se a
    resposta for não, redesenhar.
 
+## Metatags de compartilhamento (og:image / WhatsApp) — obrigatório
+
+Toda landing page tem que ter uma imagem de preview real ao compartilhar o
+link (WhatsApp, Instagram, etc.), não só título/descrição. Problema recorrente:
+gerar o `opengraph-image.tsx` só com texto em gradiente, sem foto nenhuma — o
+preview fica sem graça e não representa o cliente.
+
+- Usar o arquivo de convenção `src/app/opengraph-image.tsx` (`ImageResponse`
+  do `next/og`) e **sempre incluir uma foto real do cliente/negócio**
+  (recortada com `readFile` + base64, como as outras imagens do projeto), não
+  só tipografia sobre fundo colorido.
+- `next/og` não tem acesso às fontes do sistema nem ao `next/font` da página —
+  se quiser usar a mesma tipografia da marca, baixar o arquivo `.ttf` estático
+  (ex.: via `gwfh.mranftl.com/api/fonts/<font>` ou repo `google/fonts` no
+  GitHub) e passar via `fonts: [...]` no `ImageResponse`. Evitar fontes
+  variáveis (`[wght]`/`[opsz,wght]`) — muitos parsers de OG image quebram
+  nelas; preferir uma instância estática (peso/estilo fixos).
+- Testar a imagem gerada acessando `/opengraph-image` direto no navegador (ou
+  via `curl`) antes de considerar pronto — não confiar só na existência do
+  arquivo.
+- **`metadataBase`/`SITE_URL` (`layout.tsx`, `robots.ts`, `sitemap.ts`) tem que
+  apontar para a URL real do deploy** (ex.: `https://<projeto>.vercel.app`),
+  nunca para um domínio placeholder/fictício (ex.: `<projeto>.com.br` que
+  ainda não existe). Se apontar para um domínio que não resolve, o WhatsApp
+  (e qualquer crawler de preview) não consegue buscar a imagem e o link
+  compartilhado fica sem nenhuma prévia. Atualizar para o domínio definitivo
+  se/quando o cliente comprar um.
+- Lembrar que a prévia do WhatsApp busca a versão **publicada** (produção),
+  não o servidor local — mudanças em `opengraph-image.tsx` só valem depois de
+  dar deploy.
+
 ## Estrutura esperada por projeto
 
 ```

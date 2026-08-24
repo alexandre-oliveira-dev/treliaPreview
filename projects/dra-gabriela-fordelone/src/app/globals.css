@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --cloud: #f8f6fb;
+  --cloud-dim: #eee9f9;
+  --cloud-deep: #e2dbf4;
+  --ink-950: #241b32;
+  --ink-800: #392b4d;
+  --ink-700: #4a3a61;
+  --ink-600: #5b4f74;
+  --flamingo: #ee4f81;
+  --flamingo-dark: #c93868;
+  --flamingo-light: #ffb4cc;
+  --periwinkle: #c7d2fb;
+  --periwinkle-dim: #e4e9fd;
+  --butter: #ffe29a;
+  --butter-dim: #fff3d2;
+}
+
+@theme inline {
+  --color-cloud: var(--cloud);
+  --color-cloud-dim: var(--cloud-dim);
+  --color-cloud-deep: var(--cloud-deep);
+  --color-ink-950: var(--ink-950);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+  --color-flamingo: var(--flamingo);
+  --color-flamingo-dark: var(--flamingo-dark);
+  --color-flamingo-light: var(--flamingo-light);
+  --color-periwinkle: var(--periwinkle);
+  --color-periwinkle-dim: var(--periwinkle-dim);
+  --color-butter: var(--butter);
+  --color-butter-dim: var(--butter-dim);
+
+  --font-display: var(--font-instrument);
+  --font-body: var(--font-sora);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
+body {
+  background: var(--cloud);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--flamingo);
+  color: var(--cloud);
+}
+
+/* Signature motif: soft organic blobs that drift and slowly morph shape.
+   Used as ambient texture behind photos and section content instead of
+   the wave-dividers / bento-grids the sibling projects already use. */
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+  }
+  33% {
+    transform: translate(2%, -3%) scale(1.04);
+    border-radius: 58% 42% 40% 60% / 55% 65% 35% 45%;
+  }
+  66% {
+    transform: translate(-2%, 2%) scale(0.98);
+    border-radius: 35% 65% 55% 45% / 40% 50% 50% 60%;
+  }
+}
+
+.blob {
+  border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+  animation: blob-float 16s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+.blob-slow {
+  animation-duration: 24s;
+}
+
+.blob-reverse {
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}
+
+/* Hero portrait mask: one organic shape, not a rounded rect or the
+   coastline clip already used elsewhere. The path itself lives in an
+   inline <svg><clipPath> (objectBoundingBox units) so it scales cleanly
+   at every breakpoint. */
+.portrait-blob {
+  clip-path: url(#gf-blob-clip);
+}
