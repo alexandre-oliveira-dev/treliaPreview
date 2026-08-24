@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #fbf6ef;
+  --cream-dim: #f1e6d8;
+  --nude-200: #e8d8c2;
+  --nude-300: #d9c1a1;
+  --brown-900: #2c2016;
+  --brown-800: #3c2c1e;
+  --brown-700: #55402c;
+  --brown-600: #6f5439;
+  --gold: #ad8a53;
+  --gold-light: #cfab6f;
+  --gold-dark: #8a6c3f;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-dim: var(--cream-dim);
+  --color-nude-200: var(--nude-200);
+  --color-nude-300: var(--nude-300);
+  --color-brown-900: var(--brown-900);
+  --color-brown-800: var(--brown-800);
+  --color-brown-700: var(--brown-700);
+  --color-brown-600: var(--brown-600);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+
+  --font-display: var(--font-playfair);
+  --font-script: var(--font-script);
+  --font-body: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--brown-900);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.script-mark {
+  font-family: var(--font-script), cursive;
+}
