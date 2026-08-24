@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --bordo-950: #200a0f;
+  --bordo-900: #2e0f17;
+  --bordo-800: #451420;
+  --bordo-700: #541824;
+  --bordo-600: #6b1f2e;
+  --gold: #c9a15a;
+  --gold-light: #e6cd94;
+  --gold-dim: #a8863f;
+  --cream: #f4ece0;
+  --cream-dim: #d9c9b6;
+}
+
+@theme inline {
+  --color-bordo-950: var(--bordo-950);
+  --color-bordo-900: var(--bordo-900);
+  --color-bordo-800: var(--bordo-800);
+  --color-bordo-700: var(--bordo-700);
+  --color-bordo-600: var(--bordo-600);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dim: var(--gold-dim);
+  --color-cream: var(--cream);
+  --color-cream-dim: var(--cream-dim);
+
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bordo-950);
+  color: var(--cream);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.monogram-mark {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}

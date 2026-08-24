@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf3ef;
+  --foreground: #4a342c;
+  --rose-50: #fdf6f3;
+  --rose-100: #f7e9e3;
+  --rose-200: #edd3c7;
+  --rose-300: #dfb6a4;
+  --rose-400: #c9a08a;
+  --rose-500: #b3826b;
+  --brown-600: #8a5f4d;
+  --brown-700: #6b463a;
+  --brown-800: #4a342c;
+  --gold-300: #d8bfa0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-rose-50: var(--rose-50);
+  --color-rose-100: var(--rose-100);
+  --color-rose-200: var(--rose-200);
+  --color-rose-300: var(--rose-300);
+  --color-rose-400: var(--rose-400);
+  --color-rose-500: var(--rose-500);
+  --color-brown-600: var(--brown-600);
+  --color-brown-700: var(--brown-700);
+  --color-brown-800: var(--brown-800);
+  --color-gold-300: var(--gold-300);
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-jost);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jost), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-playfair), serif;
+}
+
+::selection {
+  background: var(--rose-300);
+  color: #fff;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-22px) rotate(6deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 9s ease-in-out infinite;
+}
