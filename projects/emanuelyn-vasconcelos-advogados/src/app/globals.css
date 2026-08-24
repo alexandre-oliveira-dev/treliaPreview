@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3f1ea;
+  --paper-dim: #e7e2d3;
+  --ink-950: #0b0f0e;
+  --ink-900: #141a19;
+  --ink-800: #1f2826;
+  --ink-700: #38443f;
+  --ink-600: #526059;
+  --brass: #b6903f;
+  --brass-light: #d9b976;
+  --brass-dim: #8a6a2c;
+  --petrol: #1f4a48;
+  --petrol-light: #2f6b67;
+  --neutral: #6b7370;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+  --color-brass: var(--brass);
+  --color-brass-light: var(--brass-light);
+  --color-brass-dim: var(--brass-dim);
+  --color-petrol: var(--petrol);
+  --color-petrol-light: var(--petrol-light);
+  --color-neutral: var(--neutral);
+
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-plex-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Corte diagonal do hero: separa o painel escuro do retrato da advogada. */
+.diagonal-clip {
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 1023px) {
+  .diagonal-clip {
+    clip-path: none;
+  }
+}
+
+/* Trilho vertical do dossiê: conecta os números de referência dos serviços. */
+.dossie-rail {
+  position: relative;
+}
+
+.dossie-rail::before {
+  content: "";
+  position: absolute;
+  left: 1.35rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--brass) 8%,
+    var(--brass) 92%,
+    transparent
+  );
+}
+
+@media (min-width: 640px) {
+  .dossie-rail::before {
+    left: 1.75rem;
+  }
+}
