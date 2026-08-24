@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #fbf8f0;
+  --paper-dim: #f4ecd8;
+  --paper-deep: #ecdfc0;
+  --mist: #eaf5f1;
+  --mist-dim: #ddeee8;
+  --ink-950: #1a3733;
+  --ink-900: #234943;
+  --ink-800: #2f5c54;
+  --ink-700: #43746a;
+  --ink-600: #5c8d82;
+  --coral: #ea6a43;
+  --coral-dark: #c65330;
+  --coral-light: #f6a37c;
+  --seafoam: #aed6ca;
+  --seafoam-dim: #e0f1ea;
+  --wood: #bd9163;
+  --wood-dark: #96693c;
+  --wood-light: #e7cba1;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-paper-deep: var(--paper-deep);
+  --color-mist: var(--mist);
+  --color-mist-dim: var(--mist-dim);
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+  --color-coral: var(--coral);
+  --color-coral-dark: var(--coral-dark);
+  --color-coral-light: var(--coral-light);
+  --color-seafoam: var(--seafoam);
+  --color-seafoam-dim: var(--seafoam-dim);
+  --color-wood: var(--wood);
+  --color-wood-dark: var(--wood-dark);
+  --color-wood-light: var(--wood-light);
+
+  --font-display: var(--font-bodoni);
+  --font-body: var(--font-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Wave signature motif shared across sections */
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: var(--coral);
+  color: var(--paper);
+}
+
+/* Hero signature motif: a gentle coastline edge on the portrait, instead of
+   a rounded photo card. Bottom edge on mobile, left edge on desktop. */
+.hero-clip {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 90%,
+    92% 94%,
+    84% 90%,
+    76% 93%,
+    68% 89%,
+    60% 93%,
+    52% 90%,
+    44% 94%,
+    36% 90%,
+    28% 93%,
+    20% 89%,
+    12% 93%,
+    4% 90%,
+    0% 93%
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-clip {
+    clip-path: polygon(
+      100% 0%,
+      12% 0%,
+      9% 8%,
+      13% 17%,
+      8% 25%,
+      12% 33%,
+      8% 42%,
+      12% 50%,
+      8% 58%,
+      12% 67%,
+      8% 75%,
+      12% 83%,
+      9% 92%,
+      12% 100%,
+      100% 100%
+    );
+  }
+}
+
+/* Ticker/boardwalk marquee — replaces the generic floating rating card */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 26s linear infinite;
+  width: max-content;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
