@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #edeee6;
+  --paper-dim: #e2e3d7;
+  --ink-950: #201822;
+  --ink-900: #2a2130;
+  --ink-800: #3a2f3f;
+  --ink-700: #4d4152;
+  --wine: #8b4058;
+  --wine-light: #b06478;
+  --wine-dim: #5e2c3c;
+  --olive: #6b7256;
+  --olive-dim: #545a45;
+  --neutral: #6e645f;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-wine: var(--wine);
+  --color-wine-light: var(--wine-light);
+  --color-wine-dim: var(--wine-dim);
+  --color-olive: var(--olive);
+  --color-olive-dim: var(--olive-dim);
+  --color-neutral: var(--neutral);
+
+  --font-display: var(--font-spectral);
+  --font-body: var(--font-work-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ink-underline signature: hand-drawn stroke revealed via stroke-dashoffset. */
+.ink-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.ink-underline svg {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.12em;
+  width: 104%;
+  height: 0.32em;
+  overflow: visible;
+}
+
+.ink-underline path {
+  fill: none;
+  stroke: var(--wine);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 340;
+  stroke-dashoffset: 340;
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ink-underline.is-visible path {
+  stroke-dashoffset: 0;
+}
