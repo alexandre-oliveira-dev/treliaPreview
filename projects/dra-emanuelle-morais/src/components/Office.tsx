@@ -17,36 +17,17 @@ export default function Office() {
     offset: ["start end", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
-    <section
-      id="consultorio"
-      ref={sectionRef}
-      className="relative isolate overflow-hidden bg-ink-900 py-28 text-paper sm:py-36"
-    >
-      <motion.div
-        style={{ y: imageY }}
-        aria-hidden="true"
-        className="absolute inset-x-0 -top-[12%] -bottom-[12%]"
-      >
-        <Image
-          src="/images/office-v2.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-      </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/50 to-ink-950/75" />
-
-      <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
+    <section id="consultorio" ref={sectionRef} className="relative bg-paper py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-xs font-semibold uppercase tracking-[0.22em] text-seafoam"
+          className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-600"
         >
           O consultório
         </motion.p>
@@ -56,27 +37,48 @@ export default function Office() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-4 font-display text-3xl leading-tight text-balance sm:text-5xl"
+          className="mt-4 max-w-2xl font-display text-3xl leading-tight text-ink-950 text-balance sm:text-5xl"
         >
           Um ambiente pensado para acalmar antes mesmo da consulta começar.
         </motion.h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {STATS.map((stat, i) => (
+        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-14">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-lg shadow-ink-950/10 lg:mx-0"
+          >
             <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl border border-paper/15 bg-paper/5 px-5 py-6 backdrop-blur-sm"
+              style={{ y: imageY }}
+              className="absolute inset-x-0 -top-[6%] -bottom-[6%]"
             >
-              <p className="font-display text-3xl text-coral">
-                {stat.value}
-              </p>
-              <p className="mt-1.5 text-sm text-paper/80">{stat.label}</p>
+              <Image
+                src="/images/office-v2.jpg"
+                alt="Recepção do consultório da Dra. Emanuelle Morais, com balcão de madeira e poltronas"
+                fill
+                sizes="(max-width: 1024px) 90vw, 460px"
+                className="object-cover"
+              />
             </motion.div>
-          ))}
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-1">
+            {STATS.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex items-center gap-4 rounded-2xl border border-ink-900/8 bg-white/60 px-5 py-5 shadow-sm shadow-ink-950/5"
+              >
+                <p className="font-display text-3xl text-coral">{stat.value}</p>
+                <p className="text-sm text-ink-700">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

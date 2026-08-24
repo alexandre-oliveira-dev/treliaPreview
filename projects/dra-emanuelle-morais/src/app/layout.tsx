@@ -13,7 +13,7 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://dra-emanuelle-morais.com.br";
+const SITE_URL = "https://dra-emanuelle-morais.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

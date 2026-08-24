@@ -9,7 +9,6 @@ import {
   ShieldPlus,
   AlignCenter,
 } from "lucide-react";
-import WaveDivider from "./WaveDivider";
 
 const SERVICES = [
   {
@@ -100,10 +99,6 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
-      </div>
-
-      <div className="mt-20 rotate-180">
-        <WaveDivider fill="var(--ink-900)" />
       </div>
     </section>
   );
