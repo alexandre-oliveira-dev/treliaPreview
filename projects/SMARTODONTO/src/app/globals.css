@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf9f6;
+  --foreground: #16232f;
+
+  --color-brand-orange: #f4791d;
+  --color-brand-orange-dark: #d9600a;
+  --color-brand-orange-light: #ffedd9;
+  --color-brand-navy: #16232f;
+  --color-brand-navy-light: #2a3d4f;
+  --color-brand-cream: #fbf9f6;
+  --color-brand-wood: #c9a576;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-orange: var(--color-brand-orange);
+  --color-brand-orange-dark: var(--color-brand-orange-dark);
+  --color-brand-orange-light: var(--color-brand-orange-light);
+  --color-brand-navy: var(--color-brand-navy);
+  --color-brand-navy-light: var(--color-brand-navy-light);
+  --color-brand-cream: var(--color-brand-cream);
+  --color-brand-wood: var(--color-brand-wood);
+  --font-sans: var(--font-poppins);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-brand-orange);
+  color: white;
+}
+
+.text-gradient-orange {
+  background: linear-gradient(90deg, var(--color-brand-orange) 0%, var(--color-brand-orange-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(244, 121, 29, 0.55); }
+  70% { box-shadow: 0 0 0 16px rgba(244, 121, 29, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 121, 29, 0); }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
