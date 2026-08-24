@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --ink-950: #0c1b1d;
+  --ink-900: #12282b;
+  --ink-800: #1c3a3e;
+  --ink-700: #2a4f54;
+  --clay: #b5562f;
+  --clay-light: #d98857;
+  --clay-dim: #8a3f22;
+  --sand: #f4ede1;
+  --sand-dim: #e6d9c4;
+  --paper: #faf6ee;
+}
+
+@theme inline {
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-clay: var(--clay);
+  --color-clay-light: var(--clay-light);
+  --color-clay-dim: var(--clay-dim);
+  --color-sand: var(--sand);
+  --color-sand-dim: var(--sand-dim);
+  --color-paper: var(--paper);
+
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hero-portrait-mask {
+  clip-path: url(#portrait-clip);
+}
