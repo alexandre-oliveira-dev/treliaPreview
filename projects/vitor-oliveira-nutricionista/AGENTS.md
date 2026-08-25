@@ -34,6 +34,16 @@ frio nem um perfil fitness genérico de dieta restritiva.
   usuário: "extraia do instagram"). Nenhum depoimento foi inventado — a
   seção de prova social foi propositalmente omitida até existirem
   depoimentos reais de clientes para usar.
+- **Seção "Avaliação nutricional":** adicionada a pedido do cliente (print
+  de WhatsApp, 25/08/2026) pedindo destaque para antropometria e
+  bioimpedância como métodos de avaliação, além de "planos e pacotes"
+  das marmitas. Implementada como `AvaliacaoNutricional.tsx`, entre "Como
+  funciona" e "Serviços" — dois cards (Antropometria, Bioimpedância) no
+  mesmo vocabulário visual dos cards de Serviços. O pedido de "planos e
+  pacotes" das marmitas foi tratado como uma frase de reforço no card
+  "Marmitas Nutrichef" em `Servicos.tsx` (não como seção própria), porque o
+  cliente ainda não passou os pacotes/preços reais — evitar inventar
+  planos específicos até existir essa informação.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

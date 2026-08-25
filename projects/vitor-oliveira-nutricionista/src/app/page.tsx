@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Filosofia from "@/components/Filosofia";
 import ComoFunciona from "@/components/ComoFunciona";
+import AvaliacaoNutricional from "@/components/AvaliacaoNutricional";
 import Servicos from "@/components/Servicos";
 import LocationHours from "@/components/LocationHours";
 import Footer from "@/components/Footer";
@@ -40,6 +41,7 @@ export default function Home() {
         <Hero />
         <Filosofia />
         <ComoFunciona />
+        <AvaliacaoNutricional />
         <Servicos />
         <LocationHours />
       </main>

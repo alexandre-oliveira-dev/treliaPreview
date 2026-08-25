@@ -71,7 +71,8 @@ export default function Servicos() {
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-cream/75">
               Refeições preparadas seguindo o seu cardápio, entregues prontas
-              para quem quer praticidade sem abrir mão do plano.
+              para quem quer praticidade sem abrir mão do plano. Planos e
+              pacotes flexíveis, para experimentar ou incorporar na rotina.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-2">
               <div className="relative aspect-square overflow-hidden rounded-xl">
