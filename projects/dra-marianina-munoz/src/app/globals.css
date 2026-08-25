@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #fbf6f0;
+  --ivory-dim: #f4ecdf;
+  --ivory-deep: #ecdfcb;
+  --charcoal-950: #1b1712;
+  --charcoal-800: #2c261d;
+  --charcoal-700: #3d352a;
+  --charcoal-600: #5a4f3f;
+  --gold: #b8894f;
+  --gold-dark: #8f6a3a;
+  --gold-light: #d9b779;
+  --blush: #e3b9bd;
+  --blush-dim: #f3dfe1;
+  --blush-deep: #c98a93;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-ivory-dim: var(--ivory-dim);
+  --color-ivory-deep: var(--ivory-deep);
+  --color-charcoal-950: var(--charcoal-950);
+  --color-charcoal-800: var(--charcoal-800);
+  --color-charcoal-700: var(--charcoal-700);
+  --color-charcoal-600: var(--charcoal-600);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-light: var(--gold-light);
+  --color-blush: var(--blush);
+  --color-blush-dim: var(--blush-dim);
+  --color-blush-deep: var(--blush-deep);
+
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-montserrat);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--gold-light);
+  color: var(--charcoal-950);
+}
+
+/* Signature motif: gold-line triangular facets, echoing the real clinic's
+   geometric wallpaper. Used as a background texture behind sections and as
+   a divider — no other project in the folder uses this vocabulary. */
+.facet-field {
+  background-image:
+    linear-gradient(135deg, transparent 48.5%, var(--gold) 49%, var(--gold) 49.6%, transparent 50.1%),
+    linear-gradient(45deg, transparent 48.5%, var(--blush-deep) 49%, var(--blush-deep) 49.6%, transparent 50.1%);
+  background-size: 120px 120px, 120px 120px;
+  background-position: 0 0, 60px 0;
+}
+
+.facet-field-soft {
+  opacity: 0.14;
+}
+
+@keyframes facet-drift {
+  0% {
+    background-position: 0 0, 60px 0;
+  }
+  100% {
+    background-position: 120px 120px, 180px 120px;
+  }
+}
+
+.facet-field-animated {
+  animation: facet-drift 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .facet-field-animated {
+    animation: none;
+  }
+}
