@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --linen: #faf3ea;
+  --linen-dim: #f1e5d4;
+  --linen-deep: #e6d3b8;
+  --ink-950: #241d16;
+  --ink-800: #382c1f;
+  --ink-700: #4d3d2a;
+  --ink-600: #6b5940;
+  --clay: #b1552f;
+  --clay-dark: #8c3f21;
+  --clay-light: #d98857;
+  --olive: #566b3e;
+  --olive-dark: #3d4d2b;
+  --olive-light: #8aa068;
+}
+
+@theme inline {
+  --color-linen: var(--linen);
+  --color-linen-dim: var(--linen-dim);
+  --color-linen-deep: var(--linen-deep);
+  --color-ink-950: var(--ink-950);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+  --color-clay: var(--clay);
+  --color-clay-dark: var(--clay-dark);
+  --color-clay-light: var(--clay-light);
+  --color-olive: var(--olive);
+  --color-olive-dark: var(--olive-dark);
+  --color-olive-light: var(--olive-light);
+
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-nunito-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: var(--linen);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--clay-light);
+  color: var(--ink-950);
+}
+
+/* Assinatura visual: selo circular "carimbo de cera" — usado no crachá do
+   CRO e como marca d'água decorativa. Nenhum outro projeto da pasta usa esse
+   vocabulário (os irmãos usam padrões geométricos/lineares). */
+.wax-seal {
+  position: relative;
+  border-radius: 9999px;
+  border: 2px solid var(--clay);
+}
+
+.wax-seal::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 9999px;
+  border: 1px dashed var(--clay);
+  opacity: 0.6;
+}
+
+.blob-frame {
+  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+}
+
+@media (min-width: 768px) {
+  .blob-frame {
+    border-radius: 63% 37% 42% 58% / 52% 40% 60% 48%;
+  }
+}
