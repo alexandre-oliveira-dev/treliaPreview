@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --sand: #faf6f1;
+  --sand-dim: #f1e7d9;
+  --sand-deep: #e4d2b8;
+  --ink-950: #2a211b;
+  --ink-800: #3d2f26;
+  --ink-600: #6b584c;
+  --clay: #c1502e;
+  --clay-dark: #9c3d22;
+  --clay-light: #e2896b;
+}
+
+@theme inline {
+  --color-sand: var(--sand);
+  --color-sand-dim: var(--sand-dim);
+  --color-sand-deep: var(--sand-deep);
+  --color-ink-950: var(--ink-950);
+  --color-ink-800: var(--ink-800);
+  --color-ink-600: var(--ink-600);
+  --color-clay: var(--clay);
+  --color-clay-dark: var(--clay-dark);
+  --color-clay-light: var(--clay-light);
+
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: var(--sand);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--clay-light);
+  color: var(--ink-950);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Assinatura visual: arco orgânico "sorriso" traçado em linha, referência
+   direta ao nicho (extração de siso / sorriso tranquilo). Usado como divisor
+   entre seções e textura de fundo — vocabulário não usado em nenhum outro
+   projeto da pasta (os demais usam grades geométricas, blobs ou nenhum
+   motivo autoral). */
+.smile-arc-divider {
+  display: block;
+  width: 100%;
+  height: 48px;
+}
+
+@keyframes arc-draw {
+  from {
+    stroke-dashoffset: 340;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.smile-arc-animate path {
+  stroke-dasharray: 340;
+  animation: arc-draw 1.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smile-arc-animate path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
