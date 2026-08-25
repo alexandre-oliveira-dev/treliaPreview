@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f7f2e6;
+  --cream-dim: #efe3c9;
+  --cream-deep: #e2d0a8;
+  --ink-950: #1b1710;
+  --ink-800: #322a1f;
+  --ink-600: #665a49;
+  --pine: #1f4d3a;
+  --pine-dark: #123326;
+  --pine-light: #4f7d67;
+  --tomato: #e05a3b;
+  --tomato-dark: #b6431f;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-dim: var(--cream-dim);
+  --color-cream-deep: var(--cream-deep);
+  --color-ink-950: var(--ink-950);
+  --color-ink-800: var(--ink-800);
+  --color-ink-600: var(--ink-600);
+  --color-pine: var(--pine);
+  --color-pine-dark: var(--pine-dark);
+  --color-pine-light: var(--pine-light);
+  --color-tomato: var(--tomato);
+  --color-tomato-dark: var(--tomato-dark);
+
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-dmsans);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--tomato);
+  color: var(--cream);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Assinatura visual: "prato" traçado em linha (círculo + garfo/colher),
+   ritmo de pontos como sementes/temperos espalhados — referência direta ao
+   nicho (nutrição + culinária), diferente dos arcos/blobs/padrões geométricos
+   usados nos projetos odontológicos da pasta. */
+.seed-dots {
+  background-image: radial-gradient(
+    currentColor 1.5px,
+    transparent 1.5px
+  );
+  background-size: 18px 18px;
+}
+
+@keyframes plate-draw {
+  from {
+    stroke-dashoffset: 620;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.plate-mark-animate circle,
+.plate-mark-animate path {
+  stroke-dasharray: 620;
+  animation: plate-draw 1.8s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate-mark-animate circle,
+  .plate-mark-animate path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 26s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
