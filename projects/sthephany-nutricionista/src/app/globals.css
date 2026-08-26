@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f0e4;
+  --paper-dim: #efe4d1;
+  --espresso: #241511;
+  --espresso-800: #35211a;
+  --espresso-600: #5a4137;
+  --signal: #c4291f;
+  --signal-dark: #9c1f17;
+  --signal-light: #e8a89f;
+  --clay: #b97a55;
+  --sage: #7c8365;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-espresso: var(--espresso);
+  --color-espresso-800: var(--espresso-800);
+  --color-espresso-600: var(--espresso-600);
+  --color-signal: var(--signal);
+  --color-signal-dark: var(--signal-dark);
+  --color-signal-light: var(--signal-light);
+  --color-clay: var(--clay);
+  --color-sage: var(--sage);
+
+  --font-display: var(--font-newsreader);
+  --font-body: var(--font-work-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--espresso);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--paper);
+}
+
+/* Assinatura visual: motivo de "ficha de anamnese" — régua pontilhada estilo
+   rótulo nutricional, aba cortada e check desenhado à mão. Vocabulário
+   próprio deste projeto, não reaproveitado de nenhum outro da pasta. */
+.ficha-rule {
+  background-image: linear-gradient(
+    to right,
+    currentColor 0,
+    currentColor 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  background-size: 10px 1.5px;
+  background-repeat: repeat-x;
+  background-position: left center;
+  height: 1.5px;
+}
+
+.ficha-tab {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
