@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --petrol: #0b2626;
+  --petrol-soft: #123535;
+  --petrol-mute: #6f8f8b;
+  --stone: #f2ede4;
+  --stone-dim: #e2dacb;
+  --copper: #b5713b;
+  --copper-light: #d69662;
+  --copper-deep: #8a5327;
+  --sage: #7c9186;
+  --sage-deep: #566a5d;
+}
+
+@theme inline {
+  --color-petrol: var(--petrol);
+  --color-petrol-soft: var(--petrol-soft);
+  --color-petrol-mute: var(--petrol-mute);
+  --color-stone: var(--stone);
+  --color-stone-dim: var(--stone-dim);
+  --color-copper: var(--copper);
+  --color-copper-light: var(--copper-light);
+  --color-copper-deep: var(--copper-deep);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+
+  --font-display: var(--font-oswald);
+  --font-body: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--petrol);
+  color: var(--stone);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--copper);
+  color: var(--petrol);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Assinatura visual: "raia de pista" — curva de raia de atletismo em traço
+   fino cobre com linha pontilhada central, usada como divisor autoral entre
+   seções. Vocabulário não usado em nenhum outro projeto da pasta (os demais
+   usam veios de mármore, ECG, gota-folha ou blobs). */
+.track-lane-divider {
+  color: var(--copper);
+}

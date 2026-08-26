@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #15161a;
+  --ink-soft: #24262d;
+  --ink-mute: #8b8a92;
+  --ivory: #f4efe6;
+  --ivory-dim: #d9d2c3;
+  --wood: #c9a574;
+  --wood-deep: #9c7a4c;
+  --brass: #c9974f;
+  --brass-light: #e0bb7f;
+  --brass-deep: #a1762f;
+  --navy: #1d2a44;
+  --navy-light: #2c3d5e;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-ivory: var(--ivory);
+  --color-ivory-dim: var(--ivory-dim);
+  --color-wood: var(--wood);
+  --color-wood-deep: var(--wood-deep);
+  --color-brass: var(--brass);
+  --color-brass-light: var(--brass-light);
+  --color-brass-deep: var(--brass-deep);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+
+  --font-display: var(--font-bodoni);
+  --font-body: var(--font-urbanist);
+  --font-label: var(--font-space-grotesk);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.font-label {
+  font-family: var(--font-label), ui-monospace, monospace;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Assinatura visual: "veio de mármore" — traço fino em latão inspirado nos
+   veios reais do mármore do consultório, usado como divisor autoral entre
+   seções. Vocabulário não usado em nenhum outro projeto da pasta (os demais
+   usam arcos orgânicos, placares, blobs ou padrões geométricos). */
+.brass-vein-divider {
+  color: var(--brass);
+}
