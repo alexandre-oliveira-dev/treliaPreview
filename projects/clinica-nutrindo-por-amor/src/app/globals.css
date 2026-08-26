@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #fff3e6;
+  --paper: #fffbf5;
+  --ink: #33201a;
+  --tangerine: #ff7a45;
+  --tangerine-dark: #e35f2c;
+  --forest: #2e4b3c;
+  --forest-light: #3d6350;
+  --berry: #b23a52;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-tangerine: var(--tangerine);
+  --color-tangerine-dark: var(--tangerine-dark);
+  --color-forest: var(--forest);
+  --color-forest-light: var(--forest-light);
+  --color-berry: var(--berry);
+
+  --font-display: var(--font-baloo);
+  --font-body: var(--font-figtree);
+  --font-hand: var(--font-caveat);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--tangerine);
+  color: var(--paper);
+}
