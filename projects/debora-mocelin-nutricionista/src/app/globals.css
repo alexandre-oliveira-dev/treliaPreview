@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f8f0da;
+  --paper-dim: #efe1b8;
+  --paper-deep: #e2cb8f;
+  --ink: #241c13;
+  --ink-soft: #453722;
+  --ink-mute: #7a6a4f;
+  --ochre: #c6952f;
+  --ochre-deep: #96701f;
+  --ochre-light: #e8c877;
+  --coral: #e2532d;
+  --coral-deep: #b23f1f;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-ochre: var(--ochre);
+  --color-ochre-deep: var(--ochre-deep);
+  --color-ochre-light: var(--ochre-light);
+  --color-coral: var(--coral);
+  --color-coral-deep: var(--coral-deep);
+
+  --font-display: var(--font-anton);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-space-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--coral);
+  color: var(--paper);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Assinatura visual: faixa "placar de competição" — divisores finos tipo
+   scoreboard, referência direta ao histórico de fisiculturismo da cliente.
+   Vocabulário não usado em nenhum outro projeto da pasta. */
+.scoreboard-strip {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.scoreboard-cell + .scoreboard-cell {
+  border-left: 1px solid rgba(248, 240, 218, 0.18);
+}
