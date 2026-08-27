@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --stone: #efe7da;
+  --stone-dim: #e3d6c2;
+  --stone-deep: #cdbb9d;
+  --ink-950: #211e19;
+  --ink-700: #464036;
+  --ink-500: #6f6656;
+  --teal: #1f5f58;
+  --teal-dark: #123e3a;
+  --teal-light: #4d8b83;
+}
+
+@theme inline {
+  --color-stone: var(--stone);
+  --color-stone-dim: var(--stone-dim);
+  --color-stone-deep: var(--stone-deep);
+  --color-ink-950: var(--ink-950);
+  --color-ink-700: var(--ink-700);
+  --color-ink-500: var(--ink-500);
+  --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal-light: var(--teal-light);
+
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-karla);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--stone);
+  color: var(--ink-950);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.facet-frame {
+  clip-path: polygon(
+    7% 0%,
+    100% 0%,
+    100% 86%,
+    93% 100%,
+    0% 100%,
+    0% 14%
+  );
+}
+
+.facet-card-a {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    28px 100%,
+    0% calc(100% - 28px)
+  );
+}
+
+.facet-card-b {
+  clip-path: polygon(
+    28px 0%,
+    100% 0%,
+    100% calc(100% - 28px),
+    calc(100% - 28px) 100%,
+    0% 100%,
+    0% 0%
+  );
+}

@@ -61,6 +61,9 @@ colar uma URL `*.vercel.app`, ou pedir a mensagem de venda:
    agência ou proposta comercial formal. Curta (poucas linhas), sem emojis
    em excesso, sem gerúndio de vendedor forçado.
 3. **Conteúdo da mensagem**:
+   - Sempre se apresentar logo no início como "Alexandre, desenvolvedor de
+     sites" (ou variação natural equivalente) — é assim que o usuário se
+     identifica pro dono do negócio.
    - Contextualizar que foi feito um site de amostra para aquele
      negócio específico (citar o nome do negócio/cliente).
    - Deixar claro que é uma demonstração não solicitada (gera curiosidade,

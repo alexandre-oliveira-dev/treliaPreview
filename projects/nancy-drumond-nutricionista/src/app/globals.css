@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --plum: #241726;
+  --plum-soft: #331f36;
+  --plum-mute: #8a7a8e;
+  --lilac: #ded9e3;
+  --lilac-dim: #c7bfd0;
+  --ivory: #f7f4f1;
+  --rosegold: #b98a80;
+  --rosegold-light: #d3aca3;
+  --rosegold-deep: #93655c;
+}
+
+@theme inline {
+  --color-plum: var(--plum);
+  --color-plum-soft: var(--plum-soft);
+  --color-plum-mute: var(--plum-mute);
+  --color-lilac: var(--lilac);
+  --color-lilac-dim: var(--lilac-dim);
+  --color-ivory: var(--ivory);
+  --color-rosegold: var(--rosegold);
+  --color-rosegold-light: var(--rosegold-light);
+  --color-rosegold-deep: var(--rosegold-deep);
+
+  --font-display: var(--font-italiana);
+  --font-body: var(--font-figtree);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--plum);
+  color: var(--ivory);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--rosegold);
+  color: var(--plum);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Assinatura visual: "anel de ciclo" — arco concêntrico incompleto em
+   traço fino rosé-gold, referência sutil ao ciclo hormonal (tema do
+   posicionamento em SOP). Usado como divisor e moldura decorativa.
+   Vocabulário não usado em nenhum outro projeto da pasta. */
+.cycle-ring-accent {
+  color: var(--rosegold);
+}
