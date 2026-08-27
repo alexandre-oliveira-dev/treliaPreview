@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f7f4ef;
+  --stone: #eae3d8;
+  --stone-dim: #ddd4c4;
+  --ink: #211f1c;
+  --ink-soft: #4a463f;
+  --ink-faint: #7a7469;
+  --sage: #3b5d4a;
+  --sage-dark: #294438;
+  --sage-light: #6f9080;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-stone: var(--stone);
+  --color-stone-dim: var(--stone-dim);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-sage: var(--sage);
+  --color-sage-dark: var(--sage-dark);
+  --color-sage-light: var(--sage-light);
+
+  --font-display: var(--font-petrona);
+  --font-body: var(--font-public-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
